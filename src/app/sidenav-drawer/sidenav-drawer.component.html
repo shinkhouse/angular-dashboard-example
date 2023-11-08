@@ -1,46 +1,41 @@
 <div class="sidenavigation">
   <div
-    class="item"
+    class="navigation-group"
     *ngFor="
       let item of navItems;
       let i = index;
       let last = last;
       let first = first
     "
+    [class.expanded]="item.expanded"
   >
     <app-sidenav-item
       [label]="item.label"
       [isParent]="true"
-      [expanded]="item.expanded"
+      [expanded]="item.expanded ?? false"
       (toggle)="toggle(item)"
+      [routerLink]="item.route"
+      [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="active"
       [icon]="item.icon"
       [isFirstChild]="first"
+      [hasChildren]="(item?.children && item?.children!.length > 0) ?? false"
     >
     </app-sidenav-item>
-    <div
-      [@expandCollapseHeightState]="item.expanded ? 'expand' : 'collapse'"
-    >
-    <div class="navigation-group">
-
-        <app-sidenav-item
-          *ngFor="let child of item.children; let last = last; let first = first"
-          [label]="child.label"
-          [expanded]="item.expanded"
-          [isFirstChild]="first"
-          [isLastChild]="last"
-          (toggle)="toggle(child)"
-        >
-        </app-sidenav-item>
-    </div>
+    <div class="child-group" [@expandCollapseHeightState]="item.expanded ? 'expand' : 'collapse'">
+      <app-sidenav-item
+        *ngFor="let child of item.children; let last = last; let first = first"
+        [label]="child.label"
+        [expanded]="item.expanded ?? false"
+        [routerLink]="child.route"
+        [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="active"
+        [isChild]="true"
+        [isFirstChild]="first"
+        [isLastChild]="last"
+        (toggle)="toggle(child)"
+      >
+      </app-sidenav-item>
     </div>
   </div>
 </div>
-<!-- <mat-sidenav> -->
-  <mat-list @expandCollapseHeight>
-    <mat-list-item *ngFor="let item of navItems">
-      <a matLine [routerLink]="item.route" routerLinkActive="active">{{
-        item.label
-      }}</a>
-    </mat-list-item>
-  </mat-list>
-<!-- </mat-sidenav> -->

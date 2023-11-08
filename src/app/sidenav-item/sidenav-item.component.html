@@ -1,20 +1,12 @@
-<div
-  class="sidenav-item"
-  [ngClass]="{
-    'parent-item': isParent,
-    'child-item': !isParent,
-    expanded: expanded,
-    'last-child': isLastChild && !isParent,
-    'first': expanded && isParent,
-    active: isFirstChild
-  }"
-  (click)="onToggle()"
->
-  <div class="icon-container">
-    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
-    <div class="child-icon" *ngIf="!isParent">
-      <mat-icon *ngIf="!isParent">fiber_manual_record</mat-icon>
+<div class="content-container">
+    <div class="icon-container">
+      <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+      <div class="child-icon" *ngIf="!isParent">
+        <mat-icon *ngIf="!isParent">fiber_manual_record</mat-icon>
+      </div>
     </div>
-  </div>
-  <span>{{ label }}</span>
+    <span>{{ label }}</span>
 </div>
+<mat-icon class="expand-arrow" *ngIf="hasChildren" [class.rotate-180]="expanded">
+    keyboard_arrow_down
+</mat-icon>
