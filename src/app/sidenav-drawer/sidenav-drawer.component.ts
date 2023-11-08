@@ -34,6 +34,7 @@ export interface NavigationItem {
   ],
 })
 export class SidenavDrawerComponent implements OnInit {
+  public isClosed: boolean = true;
   public navItems: NavigationItem[] = [
     {
       id: 1,
@@ -158,7 +159,6 @@ export class SidenavDrawerComponent implements OnInit {
   ];
 
   // Adding children to some of the navigation items
-
   ngOnInit(): void {
     this.navItems[1].children = [
       {
@@ -226,7 +226,11 @@ export class SidenavDrawerComponent implements OnInit {
     ];
   }
 
-  toggle(item: any) {
+  toggleDrawerExpansion() {
+    this.isClosed = !this.isClosed;
+  }
+
+  toggleItemExpansion(item: any) {
     if (item.children && item.children.length > 0) {
       item.expanded = !item.expanded;
     }

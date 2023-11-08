@@ -5,8 +5,8 @@
         <mat-icon *ngIf="!isParent">fiber_manual_record</mat-icon>
       </div>
     </div>
-    <span>{{ label }}</span>
+    <span *ngIf="drawerOpen">{{ label }}</span>
 </div>
-<mat-icon class="expand-arrow" *ngIf="hasChildren" [class.rotate-180]="expanded">
+<mat-icon class="expand-arrow" *ngIf="hasChildren && drawerOpen" [class.rotate-180]="expanded">
     keyboard_arrow_down
 </mat-icon>

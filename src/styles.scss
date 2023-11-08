@@ -1,6 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --background-color: #fafafa;
+  --elevated-bg-color: #ffffff;
+  --color-primary: rgba(54, 123, 245, 1);
+  --color-primary-transparent: rgba(229, 239, 255, 1);
+  --text-color-primary: rgba(0, 0, 0, 0.87);
+
+  background: var(--background-color);
+
+  &.dark {
+    --border-color: rgba(255, 255, 255, 0.12);
+    --background-color: #121212;
+    --elevated-bg-color: #1f1f1f;
+    --color-primary: rgba(88, 170, 255, 1);
+    --color-primary-transparent: rgb(60, 100, 164, 0.36);
+    --text-color-primary: rgba(255, 255, 255, 0.87);
+  }
+}

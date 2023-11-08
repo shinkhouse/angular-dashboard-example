@@ -1,5 +1,5 @@
 .sidenavigation {
-  --border-color: rgba(0, 0, 0, 0.12);
+  background-color: var(--elevated-bg-color);
   border-right: 1px solid var(--border-color);
   height: 100%;
   padding: 16px;
@@ -7,11 +7,16 @@
   flex-direction: column;
   width: 360px;
   gap: 4px;
+  transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.closed {
+    width: 80px;
+  }
 
   .navigation-group {
     box-sizing: border-box;
     border: 1px solid transparent;
-    transition: all 225ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
     &.expanded {
       border: 1px solid var(--border-color);
       border-radius: 4px;

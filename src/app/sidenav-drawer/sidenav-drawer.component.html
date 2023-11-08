@@ -1,4 +1,7 @@
-<div class="sidenavigation">
+<div class="sidenavigation" [class.closed]="isClosed">
+    <button mat-icon-button class="toggle" (click)="toggleDrawerExpansion()">
+        <mat-icon>menu</mat-icon>
+      </button>
   <div
     class="navigation-group"
     *ngFor="
@@ -12,8 +15,9 @@
     <app-sidenav-item
       [label]="item.label"
       [isParent]="true"
+      [drawerOpen]="!isClosed"
       [expanded]="item.expanded ?? false"
-      (toggle)="toggle(item)"
+      (toggle)="toggleItemExpansion(item)"
       [routerLink]="item.route"
       [routerLinkActiveOptions]="{exact: true}"
       routerLinkActive="active"
@@ -26,6 +30,7 @@
       <app-sidenav-item
         *ngFor="let child of item.children; let last = last; let first = first"
         [label]="child.label"
+        [drawerOpen]="!isClosed"
         [expanded]="item.expanded ?? false"
         [routerLink]="child.route"
         [routerLinkActiveOptions]="{exact: true}"
@@ -33,7 +38,7 @@
         [isChild]="true"
         [isFirstChild]="first"
         [isLastChild]="last"
-        (toggle)="toggle(child)"
+        (toggle)="toggleItemExpansion(child)"
       >
       </app-sidenav-item>
     </div>

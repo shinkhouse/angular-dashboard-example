@@ -1,5 +1,4 @@
 :host-context(.sidenav-item) {
-  --border-color: rgba(0, 0, 0, 0.12);
   border: 0px;
   border-radius: 4px;
   padding: 8px 12px;
@@ -14,6 +13,7 @@
   height: 40px;
   position: relative;
   transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-color-primary);
 
   .content-container {
     display: flex;
@@ -34,8 +34,8 @@
   }
 
   &.active {
-    background-color: rgba(229, 239, 255, 1);
-    color: rgba(54, 123, 245, 1);
+    background-color: var(--color-primary-transparent);
+    color: var(--color-primary)
   }
   &.expanded {
     // &.child-item {

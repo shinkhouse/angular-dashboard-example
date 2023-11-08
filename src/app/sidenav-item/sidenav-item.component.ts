@@ -17,6 +17,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   }
 })
 export class SidenavItemComponent {
+  @Input() drawerOpen: boolean = true;
   @Input() label: string = '';
   @Input() hasChildren: boolean = false; // Determines if the nav item has children
   @Input() isParent: boolean = false; // Determines if the nav item is a parent
