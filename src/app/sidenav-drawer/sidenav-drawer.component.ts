@@ -1,20 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import {animate, state, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-sidenav-drawer',
   templateUrl: './sidenav-drawer.component.html',
   styleUrls: ['./sidenav-drawer.component.scss'],
   animations: [
-    trigger('expandCollapse', [
-      state('collapsed, void', style({height: '0px', visibility: 'hidden'})),
-      // Clear the `visibility` while open, otherwise the content will be visible when placed in
-      // a parent that's `visibility: hidden`, because `visibility` doesn't apply to descendants
-      // that have a `visibility` of their own (see #27436).
-      state('expanded', style({height: '*', visibility: ''})),
-      transition(
-        'expanded <=> collapsed, void => collapsed',
-        animate('225ms cubic-bezier(0.4,0.0,0.2,1)'),
-      ),
+    trigger('expandCollapseHeightState', [
+      state('collapse', style({height: '0px', minHeight: 'unset', overflow: 'hidden'})),
+      state('expand', style({height: '*', overflow: 'hidden'})),
+      transition('expand <=> collapse', animate('3225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
@@ -24,6 +18,7 @@ export class SidenavDrawerComponent {
       id: 1,
       label: 'Dashboard',
       icon: 'dashboard_icon',
+      route: 'Test',
       expanded: false,
       children: [],
     },
@@ -105,11 +100,3 @@ export class SidenavDrawerComponent {
     item.expanded = !item.expanded;
   }
 }
-
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from '@angular/animations';

@@ -1,24 +1,46 @@
 <div class="sidenavigation">
-    <div class="item" *ngFor="let item of navItems; let i = index; let last = last; let first = first">
+  <div
+    class="item"
+    *ngFor="
+      let item of navItems;
+      let i = index;
+      let last = last;
+      let first = first
+    "
+  >
+    <app-sidenav-item
+      [label]="item.label"
+      [isParent]="true"
+      [expanded]="item.expanded"
+      (toggle)="toggle(item)"
+      [icon]="item.icon"
+      [isFirstChild]="first"
+    >
+    </app-sidenav-item>
+    <div
+      [@expandCollapseHeightState]="item.expanded ? 'expand' : 'collapse'"
+    >
+    <div class="navigation-group">
+
         <app-sidenav-item
-          [label]="item.label"
-          [isParent]="true"
+          *ngFor="let child of item.children; let last = last; let first = first"
+          [label]="child.label"
           [expanded]="item.expanded"
-          (toggle)="toggle(item)"
-          [icon]="item.icon"
           [isFirstChild]="first"
+          [isLastChild]="last"
+          (toggle)="toggle(child)"
         >
         </app-sidenav-item>
-        <div *ngIf="item.expanded" [@expandCollapse]="item.expanded ? 'expanded' : 'collapsed'">
-          <app-sidenav-item
-            *ngFor="let child of item.children; let last = last; let first = first"
-            [label]="child.label"
-            [expanded]="item.expanded"
-            [isFirstChild]="first"
-            [isLastChild]="last"
-            (toggle)="toggle(child)"
-          >
-          </app-sidenav-item>
-        </div>
     </div>
+    </div>
+  </div>
 </div>
+<!-- <mat-sidenav> -->
+  <mat-list @expandCollapseHeight>
+    <mat-list-item *ngFor="let item of navItems">
+      <a matLine [routerLink]="item.route" routerLinkActive="active">{{
+        item.label
+      }}</a>
+    </mat-list-item>
+  </mat-list>
+<!-- </mat-sidenav> -->
