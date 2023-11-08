@@ -1,0 +1,24 @@
+<div class="sidenavigation">
+    <div class="item" *ngFor="let item of navItems; let i = index; let last = last; let first = first">
+        <app-sidenav-item
+          [label]="item.label"
+          [isParent]="true"
+          [expanded]="item.expanded"
+          (toggle)="toggle(item)"
+          [icon]="item.icon"
+          [isFirstChild]="first"
+        >
+        </app-sidenav-item>
+        <div *ngIf="item.expanded" [@expandCollapse]="item.expanded ? 'expanded' : 'collapsed'">
+          <app-sidenav-item
+            *ngFor="let child of item.children; let last = last; let first = first"
+            [label]="child.label"
+            [expanded]="item.expanded"
+            [isFirstChild]="first"
+            [isLastChild]="last"
+            (toggle)="toggle(child)"
+          >
+          </app-sidenav-item>
+        </div>
+    </div>
+</div>

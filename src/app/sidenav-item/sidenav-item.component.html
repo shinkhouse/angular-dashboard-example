@@ -1,0 +1,20 @@
+<div
+  class="sidenav-item"
+  [ngClass]="{
+    'parent-item': isParent,
+    'child-item': !isParent,
+    expanded: expanded,
+    'last-child': isLastChild && !isParent,
+    'first': expanded && isParent,
+    active: isFirstChild
+  }"
+  (click)="onToggle()"
+>
+  <div class="icon-container">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <div class="child-icon" *ngIf="!isParent">
+      <mat-icon *ngIf="!isParent">fiber_manual_record</mat-icon>
+    </div>
+  </div>
+  <span>{{ label }}</span>
+</div>

@@ -1,0 +1,10 @@
+.sidenavigation {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.item:not(:last-of-type) {
+    margin-bottom: 4px;
+}
