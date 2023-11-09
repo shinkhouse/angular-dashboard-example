@@ -228,6 +228,11 @@ export class SidenavDrawerComponent implements OnInit {
 
   toggleDrawerExpansion() {
     this.isClosed = !this.isClosed;
+    if(this.isClosed) {
+      this.navItems.forEach((item) => {
+        item.expanded = false;
+      });
+    }
   }
 
   toggleItemExpansion(item: any) {
