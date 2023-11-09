@@ -2,12 +2,13 @@
   background-color: var(--elevated-bg-color);
   border-right: 1px solid var(--border-color);
   height: 100%;
-  padding: 16px;
+  padding: 12px 16px;
   display: flex;
   flex-direction: column;
   width: 360px;
   gap: 4px;
   transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
 
   .menu-button {
     width: 40px;
