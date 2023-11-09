@@ -1,7 +1,7 @@
 :host-context(.sidenav-item) {
   border: 0px;
   border-radius: 4px;
-  padding: 8px 12px;
+  padding: 8px 8px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -37,6 +37,7 @@
     background-color: var(--color-primary-transparent);
     color: var(--color-primary)
   }
+
   &.expanded {
     // &.child-item {
     border: 0px;
@@ -58,7 +59,11 @@
 
   span {
     font-weight: 500;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
   }
+
   :not(:last-of-type) {
     margin-bottom: 4px;
   }
@@ -83,8 +88,10 @@
     }
   }
 }
+
 .expand-arrow {
   transition: 225ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &.rotate-180 {
     transform: rotate(180deg);
   }
