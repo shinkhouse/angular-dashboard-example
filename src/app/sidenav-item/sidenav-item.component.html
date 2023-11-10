@@ -1,12 +1,23 @@
-<div class="content-container">
+<div class="route-container" [routerLink]="item.route" [routerLinkActiveOptions]="{exact: true}"
+routerLinkActive="active" #contentContainer>
+  <div class="content-container" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
     <div class="icon-container">
-      <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+      <mat-icon *ngIf="!isChild && item.icon">{{ item.icon }}</mat-icon>
       <div class="child-icon" *ngIf="!isParent">
         <mat-icon *ngIf="!isParent">fiber_manual_record</mat-icon>
       </div>
     </div>
-    <span *ngIf="drawerOpen">{{ label }}</span>
-</div>
-<mat-icon class="expand-arrow" *ngIf="hasChildren && drawerOpen" [class.rotate-180]="expanded">
+    <span *ngIf="drawerOpen">{{ item.label }}</span>
+  </div>
+  <mat-icon class="expand-arrow" *ngIf="hasChildren && drawerOpen" [class.rotate-180]="item.expanded">
     keyboard_arrow_down
-</mat-icon>
+  </mat-icon>
+</div>
+
+<ng-template [ngIf]="!drawerOpen && showHoverMenu && children.length > 0">
+  <app-sidenav-hover-menu (mouseover)="onHoverMenuMouseOver()" (mouseout)="onMouseOutHoverMenu()" [parentLabel]="item.label"
+    [children]="children" [parent]="contentContainer"></app-sidenav-hover-menu>
+</ng-template>
+
+<!--  *ngIf="showHoverMenu && children.length > 0"  -->
+<!--  [ngIf]="!drawerOpen && showHoverMenu && children.length > 0" -->

@@ -1,0 +1,6 @@
+<div class="hover-menu" #hoverMenu>
+    <p class="group-header" mat-caption>{{parentLabel}}</p>
+    <ul>
+        <li [routerLink]="child.route" routerLinkActive="active" *ngFor="let child of children">{{ child.label }}</li>
+    </ul>
+</div>

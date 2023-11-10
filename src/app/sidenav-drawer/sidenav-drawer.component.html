@@ -1,45 +1,21 @@
 <div class="sidenavigation" [class.closed]="isClosed">
-    <button mat-icon-button class="toggle menu-button" (click)="toggleDrawerExpansion()">
-        <mat-icon>menu</mat-icon>
-      </button>
-  <div
-    class="navigation-group"
-    *ngFor="
+  <button mat-icon-button class="toggle menu-button" (click)="toggleDrawerExpansion()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="navigation-group" *ngFor="
       let item of navItems;
       let i = index;
       let last = last;
       let first = first
-    "
-    [class.expanded]="item.expanded"
-  >
-    <app-sidenav-item
-      [label]="item.label"
-      [isParent]="true"
-      [drawerOpen]="!isClosed"
-      [expanded]="item.expanded ?? false"
-      (toggle)="toggleItemExpansion(item)"
-      [routerLink]="item.route"
-      [routerLinkActiveOptions]="{exact: true}"
-      routerLinkActive="active"
-      [icon]="item.icon"
-      [isFirstChild]="first"
-      [hasChildren]="(item?.children && item?.children!.length > 0) ?? false"
-    >
+    " [class.expanded]="item.expanded">
+    <app-sidenav-item [item]="item" [isParent]="true" [drawerOpen]="!isClosed" (toggle)="toggleItemExpansion(item)"
+      [isFirstChild]="first" [hasChildren]="(item?.children && item?.children!.length > 0) ?? false"
+      [children]="item.children ?? []">
     </app-sidenav-item>
     <div class="child-group" [@expandCollapseHeightState]="item.expanded ? 'expand' : 'collapse'">
-      <app-sidenav-item
-        *ngFor="let child of item.children; let last = last; let first = first"
-        [label]="child.label"
-        [drawerOpen]="!isClosed"
-        [expanded]="item.expanded ?? false"
-        [routerLink]="child.route"
-        [routerLinkActiveOptions]="{exact: true}"
-      routerLinkActive="active"
-        [isChild]="true"
-        [isFirstChild]="first"
-        [isLastChild]="last"
-        (toggle)="toggleItemExpansion(child)"
-      >
+      <app-sidenav-item *ngFor="let child of item.children; let last = last; let first = first" [item]="child"
+        [drawerOpen]="!isClosed" [isChild]="true" [isFirstChild]="first" [isLastChild]="last"
+        (toggle)="toggleItemExpansion(child)">
       </app-sidenav-item>
     </div>
   </div>

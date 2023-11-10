@@ -1,7 +1,6 @@
 :host-context(.sidenav-item) {
   border: 0px;
   border-radius: 4px;
-  padding: 8px 8px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -14,7 +13,30 @@
   position: relative;
   transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--text-color-primary);
+  position: relative;
+  z-index: 1;
 
+  &.drawer-closed {
+    & .route-container {
+
+      width: 40px;
+      border-radius: 24px;
+      height: 40px;
+
+    }
+  }
+
+  .route-container {
+    width: inherit;
+    height: inherit;
+    padding: 8px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  >div.route-container,
   .content-container {
     display: flex;
     flex-direction: row;
@@ -23,19 +45,43 @@
     align-content: center;
     justify-content: start;
     align-self: stretch;
+    flex: 1 1 auto;
+  }
+
+  sidenav-hover-menu {
+    position: absolute;
+    padding: 16px;
+    z-index: 1;
+    background: var(--elevated-bg-color);
+    border-radius: 4px;
+  }
+
+  app-sidenav-hover-menu {
+    border-radius: 4px;
+    position: absolute;
+    left: 68px;
+
+    &::before {
+      float: left;
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0px;
+      height: 100%;
+      width: 50px;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 84.5%);
+      // add background color if you need to debug the hover state between parent and hover menu
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
   }
 
   :not([disabled]) {
     cursor: pointer;
   }
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.04);
-  }
-
-  &.active {
+  & .active {
     background-color: var(--color-primary-transparent);
-    color: var(--color-primary)
+    color: var(--color-primary);
   }
 
   &.expanded {

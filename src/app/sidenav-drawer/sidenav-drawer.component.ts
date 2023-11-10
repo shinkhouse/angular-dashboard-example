@@ -34,6 +34,7 @@ export interface NavigationItem {
   ],
 })
 export class SidenavDrawerComponent implements OnInit {
+  hoverMenuTimeout: any;
   public isClosed: boolean = true;
   public navItems: NavigationItem[] = [
     {
@@ -113,6 +114,20 @@ export class SidenavDrawerComponent implements OnInit {
       label: 'Support',
       icon: 'support_agent',
       route: '/support',
+      children: [
+        {
+          id: 30,
+          label: 'View Tickets',
+          icon: 'list',
+          route: '/support/tickets',
+        },
+        {
+          id: 31,
+          label: 'New Ticket',
+          icon: 'add',
+          route: '/support/new',
+        },
+      ],
     },
     {
       id: 14,
@@ -137,6 +152,20 @@ export class SidenavDrawerComponent implements OnInit {
       label: 'Invoices',
       icon: 'receipt',
       route: '/invoices',
+      children: [
+        {
+          id: 32,
+          label: 'View Invoices',
+          icon: 'list',
+          route: '/invoices/view',
+        },
+        {
+          id: 33,
+          label: 'Create Invoice',
+          icon: 'add',
+          route: '/invoices/create',
+        },
+      ],
     },
     {
       id: 18,
@@ -236,7 +265,7 @@ export class SidenavDrawerComponent implements OnInit {
   }
 
   toggleItemExpansion(item: any) {
-    if (item.children && item.children.length > 0) {
+    if (!this.isClosed && item.children && item.children.length > 0) {
       item.expanded = !item.expanded;
     }
   }
