@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, provideAnimations, provideNoopAnimations } from '@angular/platform-browser/animations';
 import { SidenavDrawerModule } from './sidenav-drawer/sidenav-drawer.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +16,9 @@ import { SidenavDrawerModule } from './sidenav-drawer/sidenav-drawer.module';
     BrowserModule,
     AppRoutingModule,
     SidenavDrawerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
   ],
   bootstrap: [AppComponent],
 })

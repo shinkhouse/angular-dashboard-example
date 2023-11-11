@@ -1,45 +1,80 @@
 .guideline-text {
-  position: absolute;
-  top: 0px;
-  left: 70px;
-  height: 100vh;
-  width: 1px;
-  background: red;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+    height: 100vh;
+    width: 1px;
+    background: red;
 }
 
 .guideline-icons {
-  position: absolute;
-  top: 0px;
-  left: 40.5px;
-  height: 100vh;
-  width: 1px;
-  background: red;
+    position: absolute;
+    top: 0px;
+    left: 40.5px;
+    height: 100vh;
+    width: 1px;
+    background: red;
 }
 
 main {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-
-  header {
     display: flex;
-    height: 64px;
-    background: var(--elevated-bg-color);
-    padding: 16px;
-    border-bottom: 1px solid var(--border-color);
+    flex-direction: row;
+    height: 100%;
 
-    h2 {
-      margin: 0px;
-      font-weight: 500;
-    }
-  }
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 64px;
+        background: var(--elevated-bg-color);
+        padding: 0px 16px;
+        border-bottom: 1px solid var(--border-color);
+        gap: 16px;
 
-  >section {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    .content-container {
-      flex: 1 1 auto;
+        h2 {
+            margin: 0px;
+            font-weight: 500;
+        }
+
+        .searchbar {
+            border-radius: 4px;
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            width: 500px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 8px;
+            gap: 12px;
+            color: var(--text-color-primary);
+
+            input {
+                background: transparent;
+                border: 0px;
+                height: 100%;
+                width: 100%;
+                padding: 12px 0px;
+                font-family: Roboto;
+                outline: none;
+            }
+        }
+        .flex {
+            flex: 1 1 auto;
+        }
+
+        .dark-mode-toggle {
+            & .mat-icon {
+                transform: rotate(135deg);
+            }
+        }
     }
-  }
+
+    > section {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        .content-container {
+            flex: 1 1 auto;
+        }
+    }
 }

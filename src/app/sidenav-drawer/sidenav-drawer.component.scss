@@ -1,80 +1,117 @@
 .sidenavigation {
-  background-color: var(--elevated-bg-color);
-  border-right: 1px solid var(--border-color);
-  height: 100%;
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  gap: 4px;
-  transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  // overflow: auto;
-  position: relative;
-  z-index: 0;
-
-  .menu-button {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-  }
-
-  &.closed {
-    width: 75px;
-  }
-
-  .navigation-group {
-    box-sizing: border-box;
-    border: 1px solid transparent;
+    background-color: var(--elevated-bg-color);
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    gap: 4px;
     transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+    // overflow: auto;
     position: relative;
+    z-index: 0;
 
-    &.expanded {
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-
-      >.child-group {
-        .sidenav-item:last-child::after {
-          display: none;
+    .menu-button {
+        width: 30px;
+        height: 30px;
+        padding: 0px;
+        background: var(--elevated-bg-color);
+        color: var(--text-color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        position: absolute;
+        right: -15px;
+        top: 48px;
+        transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover {
+            background: var(--hover-color);
         }
-      }
-
-      .sidenav-item {
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0px;
-          left: 19.5px;
-          height: 8px;
-          width: 1px;
-          background-color: var(--border-color) !important;
+        mat-icon {
+            width: 12px;
+            height: 12px;
+            font-size: 12px;
+            line-height: 12px;
         }
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0px;
-          left: 19.5px;
-          height: 8px;
-          width: 1px;
-          background-color: var(--border-color) !important;
-        }
-      }
-
-      >.sidenav-item {
-        &:first-of-type {
-          &::before {
-            display: none;
-          }
-        }
-      }
     }
-  }
+
+    &.closed {
+        width: 75px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 8px;
+        .logo {
+            width: 100%;
+            height: 100%;
+            color: white;
+            background: var(--color-primary);
+            border-radius: 50%;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .navigation-group {
+        box-sizing: border-box;
+        border: 1px solid transparent;
+        transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+
+        &.expanded {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+
+            > .child-group {
+                .sidenav-item:last-child::after {
+                    display: none;
+                }
+            }
+
+            .sidenav-item {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    left: 19.5px;
+                    height: 8px;
+                    width: 1px;
+                    background-color: var(--border-color) !important;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    left: 19.5px;
+                    height: 8px;
+                    width: 1px;
+                    background-color: var(--border-color) !important;
+                }
+            }
+
+            > .sidenav-item {
+                &:first-of-type {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .item:not(:last-of-type) {
-  margin-bottom: 4px;
+    margin-bottom: 4px;
 }
 
 .expanding-section {
-  // overflow: hidden;
+    // overflow: hidden;
 }

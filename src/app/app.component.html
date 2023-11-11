@@ -3,6 +3,14 @@
     <section>
         <header>
             <h2>My Application</h2>
+            <div class="searchbar">
+                <mat-icon>search</mat-icon>
+                <input type="text" placeholder="Search" />
+            </div>
+            <div class="flex"></div>
+            <button (click)="toggleDarkMode()" class="dark-mode-toggle" mat-icon-button [matTooltip]="getDarkModeButtonTooltip()">
+                <mat-icon>{{ getDarkModeIcon() }}</mat-icon>
+            </button>
         </header>
         <div class="content-container">
             <p>Hello world!</p>
