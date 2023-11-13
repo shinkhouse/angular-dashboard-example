@@ -1,4 +1,12 @@
-# SidenavExample
+# Angular Dashboard Example
+This is an example of a basic dashboard for Angular 17+, mostly based on Angular Material. I generated with Angular 16 and migrated to 17 to make use of standalone components.
+
+Features
+- Application Header with dark mode and density switches
+- Sidenavigation with parent and child items, currently using RouterLink
+- A real basic demo of a dashboard view
+
+-----------
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
