@@ -8,8 +8,8 @@ describe('SidenavHoverMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidenavHoverMenuComponent]
-    });
+    imports: [SidenavHoverMenuComponent]
+});
     fixture = TestBed.createComponent(SidenavHoverMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,0 +1,36 @@
+<header>
+    <!-- <h2>GemstoneIQ</h2> -->
+    <div class="flex"></div>
+    <div class="searchbar">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search" />
+    </div>
+    <div class="flex"></div>
+    <button class="profile-button" [matMenuTriggerFor]="profileMenu">
+        <img src="../assets/images/headshot.jpeg" alt="Profile Picture" />
+    </button>
+    <mat-menu #profileMenu="matMenu">
+        <button class="dark-mode-toggle" mat-menu-item (click)="toggleDarkMode()">
+            <mat-icon>{{ getDarkModeIcon() }}</mat-icon>
+            <span>{{ getDarkModeButtonTooltip() }}</span>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="densityMenu">
+            <mat-icon *ngIf="density === 'comfortable'">density_large</mat-icon>
+            <mat-icon *ngIf="density === 'cozy'">density_medium</mat-icon>
+            <mat-icon *ngIf="density === 'compact'">density_small</mat-icon>
+            <span>Density</span>
+        </button>
+        <!-- <button mat-menu-item [matMenuTriggerFor]="theming">Theme</button> -->
+    </mat-menu>
+    <mat-menu #densityMenu="matMenu">
+        <button
+            *ngFor="let densityOpt of densityOptions"
+            [class.active]="density === densityOpt.value"
+            mat-menu-item
+            (click)="changeDensity(densityOpt.value)"
+        >
+            <mat-icon>{{ densityOpt.icon }}</mat-icon>
+            <span>{{ densityOpt.name }}</span>
+        </button>
+    </mat-menu>
+</header>

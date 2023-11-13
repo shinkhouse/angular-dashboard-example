@@ -1,17 +1,22 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { NavigationItem } from '../sidenav-drawer/sidenav-drawer.component';
+import { NavigationItem } from '../../sidenav-drawer.component';
+import { RouterLinkActive, RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-sidenav-hover-menu',
-  templateUrl: './sidenav-hover-menu.component.html',
-  styleUrls: ['./sidenav-hover-menu.component.scss'],
-  host: {
-    'class': 'sidenav-hover-menu',
-    '[style.top]': 'position.top',
-    '[style.bottom]': 'position.bottom',
-  }
+    selector: 'app-sidenav-hover-menu',
+    templateUrl: './sidenav-hover-menu.component.html',
+    styleUrls: ['./sidenav-hover-menu.component.scss'],
+    host: {
+        '[class]': 'color ? "sidenav-hover-menu mat-" + color : "sidenav-hover-menu"',
+        '[style.top]': 'position.top',
+        '[style.bottom]': 'position.bottom',
+    },
+    standalone: true,
+    imports: [NgFor, RouterLinkActive, RouterLink]
 })
 export class SidenavHoverMenuComponent {
+  @Input() color: string = 'primary';
   @Input() children: NavigationItem[] = [];
   @Input() parent!: HTMLDivElement;
   @ViewChild('hoverMenu') hoverMenu!: ElementRef<HTMLDivElement>;

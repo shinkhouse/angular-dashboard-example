@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Host, Input, OnInit, Output } from '@angular/core';
 import {
   animate,
   state,
@@ -6,6 +6,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { SidenavItemComponent } from './components/sidenav-item/sidenav-item.component';
+import { NgIf, NgFor } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface NavigationItem {
   id: number;
@@ -16,24 +19,26 @@ export interface NavigationItem {
   children?: NavigationItem[]; // Optional children
 }
 @Component({
-  selector: 'app-sidenav-drawer',
-  templateUrl: './sidenav-drawer.component.html',
-  styleUrls: ['./sidenav-drawer.component.scss'],
-  animations: [
-    trigger('expandCollapseHeightState', [
-      state(
-        'collapse',
-        style({ height: '0px', minHeight: 'unset', overflow: 'hidden' })
-      ),
-      state('expand', style({ height: '*', overflow: 'hidden' })),
-      transition(
-        'expand <=> collapse',
-        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
-    ]),
-  ],
+    selector: 'app-sidenav-drawer',
+    templateUrl: './sidenav-drawer.component.html',
+    styleUrls: ['./sidenav-drawer.component.scss'],
+    animations: [
+        trigger('expandCollapseHeightState', [
+            state('collapse', style({ height: '0px', minHeight: 'unset', overflow: 'hidden' })),
+            state('expand', style({ height: '*', overflow: 'hidden' })),
+            transition('expand <=> collapse', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        MatIconModule,
+        NgIf,
+        NgFor,
+        SidenavItemComponent,
+    ],
 })
 export class SidenavDrawerComponent implements OnInit {
+  @Input() color: string = 'primary';
   hoverMenuTimeout: any;
   public isClosed: boolean = true;
   public navItems: NavigationItem[] = [
@@ -186,6 +191,8 @@ export class SidenavDrawerComponent implements OnInit {
       route: '/logout',
     },
   ];
+
+  constructor() {}
 
   // Adding children to some of the navigation items
   ngOnInit(): void {

@@ -16,11 +16,47 @@
     position: relative;
     z-index: 1;
 
+    .compact & {
+        height: 24px;
+        .route-container {
+            padding: 2px 8px;
+            height: 24px;
+        }
+    }
+
+    .cozy & {
+        height: 30px;
+        .route-container {
+            padding: 4px 8px;
+            height: 30px;
+        }
+    }
+
     &.drawer-closed {
         & .route-container {
             width: 40px;
             border-radius: 24px;
-            height: 40px;
+        }
+    }
+
+    &.mat-primary {
+        & .active {
+            background-color: var(--color-primary-transparent);
+            color: var(--color-primary);
+        }
+    }
+
+    &.mat-accent {
+        & .active {
+            background-color: var(--color-accent-transparent);
+            color: var(--color-accent);
+        }
+    }
+
+    &.mat-warn {
+        & .active {
+            background-color: var(--color-warn-transparent);
+            color: var(--color-warn);
         }
     }
 
@@ -41,7 +77,7 @@
         gap: 8px;
         align-items: center;
         align-content: center;
-        justify-content: start;
+        justify-content: flex-start;
         align-self: stretch;
         flex: 1 1 auto;
     }
@@ -69,7 +105,7 @@
             width: 50px;
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 84.5%);
             // add background color if you need to debug the hover state between parent and hover menu
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+            // background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
         }
     }
 

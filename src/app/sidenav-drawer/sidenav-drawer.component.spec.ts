@@ -8,8 +8,8 @@ describe('SidenavDrawerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidenavDrawerComponent]
-    });
+    imports: [SidenavDrawerComponent]
+});
     fixture = TestBed.createComponent(SidenavDrawerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

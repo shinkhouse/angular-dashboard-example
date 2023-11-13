@@ -15,6 +15,27 @@
         font-size: 12px;
     }
 
+    &.mat-primary {
+        .active {
+            background-color: var(--color-primary-transparent);
+            color: var(--color-primary);
+        }
+    }
+
+    &.mat-accent {
+        .active {
+            background-color: var(--color-accent-transparent);
+            color: var(--color-accent);
+        }
+    }
+
+    &.mat-warn {
+        .active {
+            background-color: var(--color-warn-transparent);
+            color: var(--color-warn);
+        }
+    }
+
     ul {
         padding: 0px;
         margin: 0px;
@@ -26,11 +47,6 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             list-style: none;
-
-            &.active {
-                background-color: var(--color-primary-transparent);
-                color: var(--color-primary);
-            }
 
             &:hover {
                 background: rgba(0, 0, 0, 0.04);

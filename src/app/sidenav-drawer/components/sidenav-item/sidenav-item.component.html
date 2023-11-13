@@ -1,4 +1,4 @@
-<div class="route-container" [routerLink]="item.route" [routerLinkActiveOptions]="{exact: true}"
+<div class="route-container" [routerLink]="item.route" [routerLinkActiveOptions]="{exact: isItemExpanded(parentItem)}"
 routerLinkActive="active" #contentContainer>
   <div class="content-container" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
     <div class="icon-container">
@@ -15,7 +15,7 @@ routerLinkActive="active" #contentContainer>
 </div>
 
 <ng-template [ngIf]="!drawerOpen && showHoverMenu && children.length > 0">
-  <app-sidenav-hover-menu (mouseover)="onHoverMenuMouseOver()" (mouseout)="onMouseOutHoverMenu()" [parentLabel]="item.label"
+  <app-sidenav-hover-menu [color]="color" (mouseover)="onHoverMenuMouseOver()" (mouseout)="onMouseOutHoverMenu()" [parentLabel]="item.label"
     [children]="children" [parent]="contentContainer"></app-sidenav-hover-menu>
 </ng-template>
 

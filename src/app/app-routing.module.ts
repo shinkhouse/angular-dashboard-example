@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { SidenavItemComponent } from './sidenav-item/sidenav-item.component';
+import { SidenavItemComponent } from './sidenav-drawer/components/sidenav-item/sidenav-item.component';
 import { SidenavDrawerComponent } from './sidenav-drawer/sidenav-drawer.component';
 
 const routes: Routes = [{ path: '**', component: AppComponent, children: [
@@ -14,3 +14,5 @@ const routes: Routes = [{ path: '**', component: AppComponent, children: [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+

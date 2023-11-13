@@ -1,19 +1,32 @@
 <main>
-    <app-sidenav-drawer></app-sidenav-drawer>
+    <app-sidenav-drawer color="warn"></app-sidenav-drawer>
     <section>
-        <header>
-            <h2>My Application</h2>
-            <div class="searchbar">
-                <mat-icon>search</mat-icon>
-                <input type="text" placeholder="Search" />
-            </div>
-            <div class="flex"></div>
-            <button (click)="toggleDarkMode()" class="dark-mode-toggle" mat-icon-button [matTooltip]="getDarkModeButtonTooltip()">
-                <mat-icon>{{ getDarkModeIcon() }}</mat-icon>
-            </button>
-        </header>
+        <app-header></app-header>
         <div class="content-container">
-            <p>Hello world!</p>
+            <h2>Welcome, Joshua</h2>
+            <div class="dashboard">
+                <div class="column-20">
+                    <div class="card">
+                        <h2>Title Card</h2>
+                    </div>
+                </div>
+                <div class="column-30">
+                    <div class="card">
+                        <h2>Title Card</h2>
+                    </div>
+                    <div class="card">
+                        <h2>Title Card</h2>
+                    </div>
+                    <div class="card">
+                        <h2>Title Card</h2>
+                    </div>
+                </div>
+                <div class="column-50">
+                    <div class="card">
+                        <h2>Title Card</h2>
+                    </div>
+                </div>
+            </div>
             <!-- <router-outlet></router-outlet> -->
         </div>
     </section>

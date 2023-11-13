@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@import "./assets/styles/modules/theme";
+
+@include mat.core();
 * {
     box-sizing: border-box;
 }
@@ -7,26 +11,47 @@ body {
     height: 100%;
 }
 body {
+    $primary-color: mat.get-theme-color($my-theme, primary, default);
+    $accent-color: mat.get-theme-color($my-theme, accent, default);
+    $warn-color: mat.get-theme-color($my-theme, warn, default);
+    $warn-500-contrast: mat.get-theme-color($my-theme, warn, 500-contrast);
+    $foreground-text: mat.get-theme-color($my-theme, foreground, text);
+    $background-card: mat.get-theme-color($my-theme, background, card);
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     --border-color: rgba(0, 0, 0, 0.12);
     --hover-color: rgba(239, 239, 239, 1);
     --background-color: #fafafa;
     --elevated-bg-color: #ffffff;
-    --color-primary: rgba(54, 123, 245, 1);
-    --color-primary-transparent: rgba(229, 239, 255, 1);
+    --color-primary: #{$primary-color};
+    --color-primary-transparent: #{transparentize($primary-color, 0.88)};
+    --color-accent: #{$accent-color};
+    --color-accent-transparent: #{transparentize($accent-color, 0.88)};
+    --color-warn: #{$warn-color};
+    --color-warn-transparent: #{transparentize($warn-color, 0.88)};
     --text-color-primary: rgba(0, 0, 0, 0.87);
 
     background: var(--background-color);
     color: var(--text-color-primary);
 
     &.dark {
+        $primary-color: mat.get-theme-color($my-theme-dark, primary, default);
+        $accent-color: mat.get-theme-color($my-theme-dark, accent, default);
+        $warn-color: mat.get-theme-color($my-theme-dark, warn, default);
+        $warn-500-contrast: mat.get-theme-color($my-theme-dark, warn, 500-contrast);
+        $foreground-text: mat.get-theme-color($my-theme-dark, foreground, text);
+        $background-card: mat.get-theme-color($my-theme-dark, background, card);
+        @include mat.all-component-colors($my-theme-dark);
         --border-color: rgba(255, 255, 255, 0.12);
         --hover-color: rgba(45, 45, 45, 1);
         --background-color: #121212;
         --elevated-bg-color: #1f1f1f;
-        --color-primary: rgba(88, 170, 255, 1);
-        --color-primary-transparent: rgb(60, 100, 164, 0.36);
+        --color-primary: #{$primary-color};
+        --color-primary-transparent: #{transparentize($primary-color, 0.88)};
+        --color-accent: #{$accent-color};
+        --color-accent-transparent: #{transparentize($accent-color, 0.88)};
+        --color-warn: #{$warn-color};
+        --color-warn-transparent: #{transparentize($warn-color, 0.88)};
         --text-color-primary: rgba(255, 255, 255, 0.87);
     }
 }
