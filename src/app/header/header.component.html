@@ -3,7 +3,18 @@
     <div class="flex"></div>
     <div class="searchbar">
         <mat-icon>search</mat-icon>
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-optgroup *ngFor="let group of searchResults">
+                <div class="mat-optgroup-header">
+                    <span>{{ group.category }}</span>
+                    <button mat-button color="primary">See More</button>
+                </div>
+                <mat-option *ngFor="let name of group.results" [value]="name">
+                    {{ name }}
+                </mat-option>
+            </mat-optgroup>
+        </mat-autocomplete>
     </div>
     <div class="flex"></div>
     <button class="profile-button" [matMenuTriggerFor]="profileMenu">

@@ -76,3 +76,7 @@
     background-color: var(--color-primary-transparent);
     color: var(--color-primary);
 }
+
+.mdc-list-item__primary-text {
+    flex: 1 1 100%;
+}
