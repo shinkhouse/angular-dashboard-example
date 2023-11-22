@@ -1,0 +1,59 @@
+:host {
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .dashboard-container {
+        .widget {
+            padding: 16px;
+            background-color: var(--elevated-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .monthly-spending-chart {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 40% 60%;
+    height: calc(100vh - 160px);
+    flex: 1 1 auto;
+}
+
+.widget-container {
+    display: flex;
+    grid-column: 1;
+    justify-content: space-between;
+}
+
+.widget1,
+.widget2 {
+    flex: 1;
+}
+
+.widget3 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.widget4 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    overflow: auto;
+}
+
+.widget1,
+.widget2,
+.widget3,
+.widget4 {
+    margin: 4px; /* Half of the desired gap */
+}

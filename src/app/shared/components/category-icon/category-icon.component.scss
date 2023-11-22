@@ -1,0 +1,159 @@
+:host {
+    display: inline-flex;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 50px;
+    width: 48px;
+    height: 48px;
+
+    &.transparent {
+        &.red {
+            color: var(--colors-redprimary);
+        }
+        &.orange {
+            color: var(--colors-orangeprimary);
+        }
+        &.yellow {
+            color: var(--colors-yellowprimary);
+        }
+        &.green {
+            color: var(--colors-greenprimary);
+        }
+        &.cyan {
+            color: var(--colors-cyan);
+        }
+        &.blue {
+            color: var(--colors-blueprimary);
+        }
+        &.purple {
+            color: var(--colors-purpleprimary);
+        }
+        &.gray {
+            color: var(--colors-grayprimary);
+        }
+
+    }
+
+    &.filled {
+        &.red {
+            color: white;
+            background: var(--colors-redprimary);
+        }
+        &.orange {
+            color: white;
+            background: var(--colors-orangeprimary);
+        }
+        &.yellow {
+            color: white;
+            background: var(--colors-yellowprimary);
+        }
+        &.green {
+            color: white;
+            background: var(--colors-greenprimary);
+        }
+        &.cyan {
+            color: white;
+            background: var(--colors-cyan);
+        }
+        &.blue {
+            color: white;
+            background: var(--colors-blueprimary);
+        }
+        &.purple {
+            color: white;
+            background: var(--colors-purpleprimary);
+        }
+        &.gray {
+            color: white;
+            background: var(--colors-grayprimary);
+        }
+    }
+
+    &.outlined {
+        &.red {
+            color: var(--colors-redprimary);
+            border: 1px solid var(--colors-redprimary);
+            background: transparent;
+        }
+        &.orange {
+            color: var(--colors-orangeprimary);
+            border: 1px solid var(--colors-orangeprimary);
+            background: transparent;
+        }
+        &.yellow {
+            color: var(--colors-yellowprimary);
+            border: 1px solid var(--colors-yellowprimary);
+            background: transparent;
+        }
+        &.green {
+            color: var(--colors-greenprimary);
+            border: 1px solid var(--colors-greenprimary);
+            background: transparent;
+        }
+        &.cyan {
+            color: var(--colors-cyan);
+            border: 1px solid var(--colors-cyan);
+            background: transparent;
+        }
+        &.blue {
+            color: var(--colors-blueprimary);
+            border: 1px solid var(--colors-blueprimary);
+            background: transparent;
+        }
+        &.purple {
+            color: var(--colors-purpleprimary);
+            border: 1px solid var(--colors-purpleprimary);
+            background: transparent;
+        }
+        &.gray {
+            color: var(--colors-grayprimary);
+            border: 1px solid var(--colors-grayprimary);
+            background: transparent;
+        }
+    }
+
+    &.outlined-bg {
+        &.red {
+            color: var(--colors-redprimary);
+            border: 1px solid var(--colors-redprimary);
+            background: var(--colors-redtransparent);
+        }
+        &.orange {
+            color: var(--colors-orangeprimary);
+            border: 1px solid var(--colors-orangeprimary);
+            background: var(--colors-orangetransparent);
+        }
+        &.yellow {
+            color: var(--colors-yellowprimary);
+            border: 1px solid var(--colors-yellowprimary);
+            background: var(--colors-yellowtransparent);
+        }
+        &.green {
+            color: var(--colors-greenprimary);
+            border: 1px solid var(--colors-greenprimary);
+            background: var(--colors-greentransparent);
+        }
+        &.cyan {
+            color: var(--colors-cyan);
+            border: 1px solid var(--colors-cyan);
+            background: var(--colors-cyantransparent);
+        }
+        &.blue {
+            color: var(--colors-blueprimary);
+            border: 1px solid var(--colors-blueprimary);
+            background: var(--colors-bluetransparent);
+        }
+        &.purple {
+            color: var(--colors-purpleprimary);
+            border: 1px solid var(--colors-purpleprimary);
+            background: var(--colors-purpletransparent);
+        }
+        &.gray {
+            color: var(--colors-grayprimary);
+            border: 1px solid var(--colors-grayprimary);
+            background: var(--colors-graytransparent);
+        }
+    }
+}

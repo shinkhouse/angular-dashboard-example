@@ -1,0 +1,30 @@
+<h1>Dashboard</h1>
+<div class="dashboard-container">
+    <div class="widget-container">
+        <div class="widgets-50 widget widget1">
+            <h2>Spending Habits</h2>
+        </div>
+        <div class="widgets-50 widget widget2">
+            <h2>Goals</h2>
+        </div>
+    </div>
+    <div class="widgets-100 widget monthly-spending-chart widget3">
+        <h2>Transaction History</h2>
+        <!--The content below is only a placeholder and can be replaced.-->
+        <apx-chart
+            #chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [xaxis]="chartOptions.xaxis"
+            [stroke]="chartOptions.stroke"
+            [dataLabels]="chartOptions.dataLabels"
+            [yaxis]="chartOptions.yaxis"
+            [labels]="chartOptions.labels"
+            [legend]="chartOptions.legend"
+        ></apx-chart>
+    </div>
+    <div class="widgets-40 widget categories-widget widget4">
+        <h2>Categories</h2>
+        <app-category-item [category]="category" *ngFor="let category of categories"></app-category-item>
+    </div>
+</div>

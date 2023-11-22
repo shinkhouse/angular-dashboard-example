@@ -1,0 +1,27 @@
+<div class="category">
+    <app-category-icon [color]="category.color" [icon]="category.icon"></app-category-icon>
+    <div class="category-details">
+        <div class="category-row">
+            <div class="category-name">{{ humanizeCategory(category.category) }}</div>
+            <div class="category-left-over">
+                <div class="left-over">{{ category.budgetRemaining | currency }}</div>
+            </div>
+        </div>
+        <progress
+            [max]="category.budgetTotal"
+            [value]="category.budgetSpent"
+            [class.warn]="category.budgetPercent >= 0.8"
+            [class.over]="category.budgetPercent >= 1.0"
+        ></progress>
+        <div class="category-row">
+            <div class="category-progress">
+                <div class="budget-spent">{{ category.budgetSpent | currency }}</div>
+                <span>/</span>
+                <div class="budget-total">{{ category.budgetTotal | currency }}</div>
+            </div>
+            <div class="category-actions">
+                <p>Edit</p>
+            </div>
+        </div>
+    </div>
+</div>

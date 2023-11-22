@@ -1,0 +1,15 @@
+// export type Density = 'comfortable' | 'cozy' | 'compact';
+@use "@angular/material" as mat;
+
+@include mat.core();
+.cozy {
+    @include mat.table-density(-1);
+}
+
+.comfortable {
+    @include mat.table-density(0);
+}
+
+.compact {
+    @include mat.table-density(-2);
+}

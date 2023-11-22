@@ -5,12 +5,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-export type Density = 'comfortable' | 'cozy' | 'compact';
-export interface DensityOption {
-    value: Density;
-    name: string;
-    icon: string;
-}
+import { ThemingService } from 'src/app/core/services/theming.service';
+
 @Component({
     selector: 'app-header',
     standalone: true,
@@ -135,33 +131,7 @@ export class HeaderComponent {
         { category: 'Purchasing', results: this.purchaseOrders.splice(0, 3) },
         { category: 'Invoices', results: this.invoiceNumbers.splice(0, 3) },
     ];
-    private dark: boolean = false;
-    public densityOptions: DensityOption[] = [
-        { name: 'Comfortable', value: 'comfortable', icon: 'density_large' },
-        { name: 'Cozy', value: 'cozy', icon: 'density_medium' },
-        { name: 'Compact', value: 'compact', icon: 'density_small' },
-    ];
-    public density: Density = 'comfortable';
-    constructor(private renderer: Renderer2) {
-        renderer.addClass(document.body, this.density);
-    }
 
-    toggleDarkMode() {
-        this.dark = !this.dark;
-        this.dark ? this.renderer.addClass(document.body, 'dark') : this.renderer.removeClass(document.body, 'dark');
-    }
+    constructor(public theming: ThemingService) {}
 
-    getDarkModeIcon() {
-        return this.dark ? 'wb_sunny' : 'brightness_3';
-    }
-
-    changeDensity(density: Density) {
-        this.renderer.removeClass(document.body, this.density);
-        this.density = density;
-        this.renderer.addClass(document.body, this.density);
-    }
-
-    getDarkModeButtonTooltip() {
-        return this.dark ? 'Light mode' : 'Dark mode';
-    }
 }

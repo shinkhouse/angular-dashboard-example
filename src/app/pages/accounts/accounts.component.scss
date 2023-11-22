@@ -1,0 +1,69 @@
+:host {
+    padding: 16px;
+}
+mat-expansion-panel {
+    &:not(:last-of-type) {
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+.account-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex: 1 1 auto;
+    .account-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        background: var(--color-primary);
+        &.red {
+            background: maroon;
+        }
+        &.orange {
+            background: orange;
+        }
+        &.yellow {
+            background: gold;
+        }
+        &.green {
+            background: green;
+        }
+        &.blue {
+            background: var(--color-primary);
+        }
+        &.purple {
+            background: indigo;
+        }
+    }
+    .account-header-details {
+        display: flex;
+        flex-direction: column; 
+        flex: 1 1 25%;
+        > p {
+            margin: 0px;
+
+            &.account-name {
+                font-size: 16px;
+                & span {
+                    color: var(--text-color-secondary);
+                }
+            }
+            &.last-updated {
+                color: var(--text-color-secondary);
+            }
+        }
+    }
+    p.account-balance {
+        margin: 0px;
+        font-size: 16px;
+    }
+    .flex {
+        flex: 1 1 auto;
+    }
+}
+
+.transaction-name > p {
+    margin: 0px;
+}

@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'sass:color';
 @use "@angular/material" as mat;
 @import "./assets/styles/modules/theme";
 
 @include mat.core();
 @import "../src/assets/styles/partials/optgroup";
+@import "../src/assets/styles/partials/table";
 * {
     box-sizing: border-box;
 }
@@ -31,6 +33,23 @@ body {
     --color-warn: #{$warn-color};
     --color-warn-transparent: #{transparentize($warn-color, 0.88)};
     --text-color-primary: rgba(0, 0, 0, 0.87);
+    --text-color-secondary: rgba(0, 0, 0, 0.54);
+    --colors-redprimary: #df0000;
+    --colors-redtransparent: #df000019;
+    --colors-orangeprimary: #f49200;
+    --colors-orangetransparent: #f4930019;
+    --colors-yellowprimary: #f4db00;
+    --colors-yellowtransparent: #f4dc0019;
+    --colors-greenprimary: #58c900;
+    --colors-greentransparent: #58c90019;
+    --colors-cyan: #00c9f5;
+    --colors-cyantransparent: #00e0ff19;
+    --colors-blueprimary: #0045a1;
+    --colors-bluetransparent: #0046a119;
+    --colors-purpleprimary: #9300d8;
+    --colors-purpletransparent: #9300d819;
+    --colors-grayprimary: #adadad;
+    --colors-graytransparent: #adadad19;
 
     background: var(--background-color);
     color: var(--text-color-primary);
@@ -54,6 +73,23 @@ body {
         --color-warn: #{$warn-color};
         --color-warn-transparent: #{transparentize($warn-color, 0.88)};
         --text-color-primary: rgba(255, 255, 255, 0.87);
+        --text-color-secondary: rgba(255, 255, 255, 0.54);
+        --colors-redprimary: #{color.scale(#df0000, $lightness: 40%)};
+        --colors-redtransparent: #{color.scale(#df000019, $lightness: 40%)};
+        --colors-orangeprimary: #{color.scale(#f49200, $lightness: 40%)};
+        --colors-orangetransparent: #{color.scale(#f4930019, $lightness: 40%)};
+        --colors-yellowprimary: #{color.scale(#f4db00, $lightness: 40%)};
+        --colors-yellowtransparent: #{color.scale(#f4dc0019, $lightness: 40%)};
+        --colors-greenprimary: #{color.scale(#58c900, $lightness: 40%)};
+        --colors-greentransparent: #{color.scale(#58c90019, $lightness: 40%)};
+        --colors-cyan: #{color.scale(#00c9f5, $lightness: 40%)};
+        --colors-cyantransparent: #{color.scale(#00e0ff19, $lightness: 40%)};
+        --colors-blueprimary: #{color.scale(#0045a1, $lightness: 40%)};
+        --colors-bluetransparent: #{color.scale(#0046a119, $lightness: 40%)};
+        --colors-purpleprimary: #{color.scale(#9300d8, $lightness: 40%)};
+        --colors-purpletransparent: #{color.scale(#9300d819, $lightness: 40%)};
+        --colors-grayprimary: #{color.scale(#adadad, $lightness: 40%)};
+        --colors-graytransparent: #{color.scale(#adadad19, $lightness: 40%)};
     }
 }
 
