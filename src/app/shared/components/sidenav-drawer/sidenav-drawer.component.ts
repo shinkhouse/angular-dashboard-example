@@ -88,28 +88,9 @@ export class SidenavDrawerComponent implements OnInit {
 
   constructor() {}
 
-  // Adding children to some of the navigation items
   ngOnInit(): void {
-    this.navItems[1].children = [
-      {
-        id: 21,
-        label: 'View Contacts',
-        icon: 'list',
-        route: '/contacts/view',
-      },
-      {
-        id: 22,
-        label: 'Add Contact',
-        icon: 'person_add',
-        route: '/contacts/add',
-      },
-      {
-        id: 23,
-        label: 'Edit Contact',
-        icon: 'edit',
-        route: '/contacts/edit',
-      },
-    ];
+    // Adding children to some of the navigation items
+    // this.navItems[1].children = [];
   }
 
   toggleDrawerExpansion() {

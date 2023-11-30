@@ -64,9 +64,10 @@
         width: inherit;
         height: inherit;
         padding: 8px;
+        border-radius: 4px;
 
-        &:hover {
-            background: rgba(0, 0, 0, 0.08);
+        &:not(.active):hover {
+            background: var(--hover-color);
         }
     }
 
@@ -139,6 +140,7 @@
 
     span {
         font-weight: 500;
+        font-size: 14px;
         text-overflow: ellipsis;
         vertical-align: top;
         white-space: nowrap;

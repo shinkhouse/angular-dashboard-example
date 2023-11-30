@@ -15,12 +15,17 @@ import {
     ApexTooltip,
 } from 'ng-apexcharts';
 
-import { series } from './data';
 import { CommonModule } from '@angular/common';
 import { CategoriesArr, Transaction, Transactions } from 'src/app/core/interface/transactions.interface';
 import { ThemingService } from 'src/app/core/services/theming.service';
 import { Subject, lastValueFrom, takeUntil } from 'rxjs';
 import { CategoryItemComponent } from 'src/app/shared/components/category-item/category-item.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import {
+    MatDialog
+  } from '@angular/material/dialog';
+import { AddGoalDialogComponent } from 'src/app/shared/components/add-goal-dialog/add-goal-dialog.component';
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -39,15 +44,16 @@ export type ChartOptions = {
 @Component({
     selector: 'app-dashboard',
     standalone: true,
-    imports: [CommonModule, NgApexchartsModule, CategoryItemComponent],
+    imports: [CommonModule, NgApexchartsModule, CategoryItemComponent, MatButtonModule, MatIconModule],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements AfterViewInit, OnDestroy {
     @ViewChild('chart') chart!: ChartComponent;
     public chartOptions: ChartOptions;
-    public transactions: Transaction[] = Transactions;
+    public transactions: Transaction[] = Transactions.splice(0, 30);
     public categories = CategoriesArr;
+    public loading: boolean = false;
     public darkMode: boolean = false;
     public transactionDetailsForChart: number[] = this.transactions.map((transaction) => {
         return transaction.amount;
@@ -57,7 +63,7 @@ export class DashboardComponent implements AfterViewInit, OnDestroy {
     });
     destroy$: Subject<boolean> = new Subject<boolean>();
 
-    constructor(private theming: ThemingService) {
+    constructor(private theming: ThemingService, private dialog: MatDialog) {
         this.chartOptions = {
             theme: {
                 mode: this.darkMode ? 'dark' : 'light',
@@ -132,10 +138,20 @@ export class DashboardComponent implements AfterViewInit, OnDestroy {
                     });
                 }
             });
+
+            setTimeout(() => {
+                this.loading = false;
+            }, 1450);
     }
 
     ngOnDestroy() {
         this.destroy$.next(true);
         this.destroy$.unsubscribe();
+    }
+
+    addGoal() {
+        this.dialog.open(AddGoalDialogComponent, {
+            width: '500px',
+        });
     }
 }

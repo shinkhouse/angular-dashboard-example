@@ -39,7 +39,7 @@
                     <th mat-header-cell *matHeaderCellDef>Category</th>
                     <td mat-cell *matCellDef="let transaction">
                         <app-chip [color]="getCategoryColor(transaction.personal_finance_category.detailed)">{{
-                            transaction.personal_finance_category.detailed
+                            humanizeCategory(transaction.personal_finance_category.detailed)
                         }}</app-chip>
                     </td>
                 </ng-container>

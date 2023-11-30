@@ -1,10 +1,11 @@
 # Angular Dashboard Example
-This is an example of a basic dashboard for Angular 17+, mostly based on Angular Material. I generated with Angular 16 and migrated to 17 to make use of standalone components.
+This is an example of a basic dashboard for Angular 17+, mostly based on Angular Material. I generated with Angular 16 and migrated to 17 to make use of standalone components. It is simulating a personal budget application with FakerJS data.
 
 Features
 - Application Header with dark mode and density switches
 - Sidenavigation with parent and child items, currently using RouterLink
-- A real basic demo of a dashboard view
+- A real basic demo of a dashboard view with a couple of widgets
+- Table view of bank transactions
 
 -----------
 

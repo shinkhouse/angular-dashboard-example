@@ -1,24 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { SidenavItemComponent } from './shared/components/sidenav-drawer/components/sidenav-item/sidenav-item.component';
-import { SidenavDrawerComponent } from './shared/components/sidenav-drawer/sidenav-drawer.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { AccountsComponent } from './pages/accounts/accounts.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
-import { InvestmentsComponent } from './pages/investments/investments.component';
-import { SubscriptionsComponent } from './pages/subscriptions/subscriptions.component';
-import { TransactionsComponent } from './pages/transactions/transactions.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'accounts', component: AccountsComponent},
-  { path: 'categories', component: CategoriesComponent},
-  { path: 'investments', component: InvestmentsComponent},
-  { path: 'subscriptions', component: SubscriptionsComponent},
-  { path: 'transactions', component: TransactionsComponent},
-  { path: 'settings', component: SettingsComponent },
+  { path: 'dashboard', loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent) },
+  { path: 'accounts', loadComponent: () => import('./pages/accounts/accounts.component').then(m => m.AccountsComponent) },
+  { path: 'categories', loadComponent: () => import('./pages/categories/categories.component').then(m => m.CategoriesComponent) },
+  { path: 'investments', loadComponent: () => import('./pages/investments/investments.component').then(m => m.InvestmentsComponent) },
+  { path: 'subscriptions', loadComponent: () => import('./pages/subscriptions/subscriptions.component').then(m => m.SubscriptionsComponent) },
+  { path: 'transactions', loadComponent: () => import('./pages/transactions/transactions.component').then(m => m.TransactionsComponent) },
+  { path: 'settings', loadComponent: () => import('./pages/settings/settings.component').then(m => m.SettingsComponent) },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // redirect to `dashboard` by default
 ];
 

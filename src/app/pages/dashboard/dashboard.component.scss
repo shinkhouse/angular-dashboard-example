@@ -4,15 +4,54 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 0;
+
+    h1 {
+        font-size: 24px;
+        margin: 0px;
+        margin-bottom: 16px;
+    }
 
     .dashboard-container {
+        display: grid;
+        height: 100vh;
+        gap: 12px;
+        flex-grow: 1;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 3fr 3fr;
+        grid-template-areas:
+            "widget1 widget2 widget4"
+            "widget3 widget3 widget4";
         .widget {
             padding: 16px;
             background-color: var(--elevated-bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
+            h2 {
+                font-size: 20px;
+                margin: 0px;
+            }
         }
 
+        
+        .widget1 {
+            grid-area: widget1;
+            width: 100%;
+        }
+        
+        .widget2 {
+            grid-area: widget2;
+            width: 100%;
+        }
+        
+        .widget3 {
+            grid-area: widget3;
+            width: 100%;
+        }
+        .widget4 {
+            grid-area: widget4;
+            min-width: 600px;
+        }
         .monthly-spending-chart {
             display: flex;
             flex-direction: column;
@@ -21,39 +60,48 @@
     }
 }
 
-.dashboard-container {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 40% 60%;
-    height: calc(100vh - 160px);
-    flex: 1 1 auto;
-}
-
-.widget-container {
-    display: flex;
-    grid-column: 1;
-    justify-content: space-between;
-}
-
-.widget1,
-.widget2 {
-    flex: 1;
-}
-
-.widget3 {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.widget4 {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+div {
+    box-sizing: border-box;
     overflow: auto;
 }
+@media only screen and (max-width: 1300px) {
+    .dashboard-container {
+        grid-gap: 16px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "widget1"
+            "widget2"
+            "widget3"
+            "widget4";
+    }
 
-.widget1,
-.widget2,
-.widget3,
-.widget4 {
-    margin: 4px; /* Half of the desired gap */
+    div {
+        overflow: inherit;
+    }
+}
+
+.empty-message-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 64px);
+    gap: 4px;
+    text-align: center;
+    margin: 24px 0px;
+    .title {
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .description {
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 0.54;
+    }
+    p {
+        margin: 0px;
+    }
+    .mdc-button {
+        margin-top: 16px;
+    }
 }

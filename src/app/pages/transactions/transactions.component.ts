@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { Transaction, Transactions, getCategoryColor } from 'src/app/core/interface/transactions.interface';
+import { Transaction, Transactions, getCategoryColor, humanize } from 'src/app/core/interface/transactions.interface';
 import { ChipComponent, ChipsColor } from 'src/app/shared/components/chip/chip.component';
 
 @Component({
@@ -17,5 +17,9 @@ export class TransactionsComponent {
 
     getCategoryColor(category: string): ChipsColor {
         return getCategoryColor(category);
+    }
+
+    humanizeCategory(category: string): string {
+        return humanize(category);
     }
 }
